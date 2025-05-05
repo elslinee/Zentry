@@ -13,9 +13,6 @@
 
   <h3 align="center">An Awwwards Winning Website</h3>
 
-   <div align="center">
-     Build this project step by step with our detailed tutorial on <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a> YouTube. Join the JSM family!
-    </div>
 </div>
 
 ## 📋 <a name="table">Table of Contents</a>
@@ -26,7 +23,6 @@
 4. 🤸 [Quick Start](#quick-start)
 5. 🕸️ [Snippets (Code to Copy)](#snippets)
 6. 🔗 [Assets](#links)
-7. 🚀 [More](#more)
 
 ## ⚠️ Disclaimer
 
@@ -85,8 +81,8 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone https://github.com/adrianhajdin/award-winning-website.git
-cd award-winning-website
+git clone https://github.com/elslinee/Zentry.git
+cd Zentry
 ```
 
 **Installation**
@@ -425,5 +421,3 @@ export default RoundedCorners;
 Assets used in the project can be found [here](https://drive.google.com/file/d/12hCVnanOAUmM1vzz2dTWZ_uEFGG8xDcT/view?usp=sharing)
 
 > This project uses some assets and fonts from **[Zentry](https://zentry.com/)** purely for educational and demonstration purposes. All rights to these assets and fonts belong to their respective owners. If you plan to use this project commercially or publicly, please replace these assets and fonts with ones you own or have permission to use. This project is not affiliated with or endorsed by **[Zentry](https://zentry.com/)**.
-
-
