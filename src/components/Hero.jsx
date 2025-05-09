@@ -5,8 +5,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Button from "./Button";
 import { useEffect } from "react";
-import { Grid } from "ldrs/react";
-import "ldrs/react/Grid.css";
+
 gsap.registerPlugin(ScrollTrigger);
 function Hero() {
   const totalVideos = 4;
@@ -22,6 +21,9 @@ function Hero() {
   const [allowClick, setAllowClick] = useState(true);
   const [loadedVideos, setLoadedVideos] = useState(0);
 
+  // Add a ref for the ScrollTrigger instance
+  const scrollTriggerRef = useRef(null);
+
   const handleVideoLoad = () => {
     setLoadedVideos((prev) => prev + 1);
   };
@@ -31,7 +33,7 @@ function Hero() {
       setIsLoading(false);
     }
   }, [loadedVideos]);
-  
+
   const handleMiniVdClick = () => {
     setAllowClick(false);
     setHasClicked(true);
@@ -151,18 +153,44 @@ function Hero() {
     gsap.set("#video-frame", {
       clipPath: "polygon(14% 0%, 65% 0%, 85% 83%, 0% 90%)",
     });
-    gsap.from("#video-frame", {
+    scrollTriggerRef.current = gsap.from("#video-frame", {
       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      ease: "power1. inOut",
+      ease: "power1.inOut",
       scrollTrigger: {
         trigger: "#video-frame",
         start: "center center",
         end: "1200px center",
         scrub: true,
+        onUpdate: (self) => {
+          if (self.progress === 0) {
+            self.scroll(self.scroll());
+          }
+        },
       },
     });
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
+
+    return () => {
+      if (scrollTriggerRef.current) {
+        scrollTriggerRef.current.kill();
+      }
+    };
   }, []);
 
+  useEffect(() => {
+    const refreshScrollTrigger = () => {
+      ScrollTrigger.refresh();
+    };
+    refreshScrollTrigger();
+    const timer = setTimeout(refreshScrollTrigger, 500);
+    window.addEventListener("resize", refreshScrollTrigger);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", refreshScrollTrigger);
+    };
+  }, []);
   useGSAP(() => {
     const tl = gsap.timeline({});
     if (!isLoading) {
@@ -180,12 +208,6 @@ function Hero() {
   }, [isLoading]);
   return (
     <section className="hero-section w-x-hidden relative h-dvh w-screen overflow-hidden">
-      <div className="site-loader flex-center fixed z-[1000] h-dvh w-screen overflow-hidden bg-[#5724ff]">
-        <div className="loader">
-          <Grid size="150" speed="1.5" color="black" />
-        </div>
-      </div>
-
       <div
         id="video-frame"
         className="bg-blue-75 relative z-[2] h-dvh overflow-hidden"
