@@ -7,6 +7,7 @@ import Button from "./Button";
 import { useEffect } from "react";
 import { Grid } from "ldrs/react";
 import "ldrs/react/Grid.css";
+import { useAppContext } from "../context/AppContext";
 gsap.registerPlugin(ScrollTrigger);
 function Hero() {
   const totalVideos = 4;
@@ -21,7 +22,8 @@ function Hero() {
   const [hasClicked, setHasClicked] = useState(false);
   const [allowClick, setAllowClick] = useState(true);
   const [loadedVideos, setLoadedVideos] = useState(0);
-
+  const { setSoundOn } = useAppContext();
+  const [firstClick, setFirstClick] = useState(false);
   const handleVideoLoad = () => {
     setLoadedVideos((prev) => prev + 1);
   };
@@ -33,6 +35,10 @@ function Hero() {
   }, [loadedVideos]);
 
   const handleMiniVdClick = () => {
+    if (!firstClick) {
+      setFirstClick(true);
+      setSoundOn(true);
+    }
     setAllowClick(false);
     setHasClicked(true);
     setCurrentIndex((prevIndex) => (prevIndex % totalVideos) + 1);
@@ -179,7 +185,7 @@ function Hero() {
     }
   }, [isLoading]);
   return (
-    <section className="hero-section w-x-hidden relative h-dvh w-screen overflow-hidden">
+    <section className="hero-section w-x-hidden relative  w-screen overflow-hidden">
       <div className="site-loader flex-center fixed z-[1000] h-dvh w-screen overflow-hidden bg-[#5724ff]">
         <div className="loader">
           <Grid size="150" speed="1.5" color="black" />
@@ -193,7 +199,7 @@ function Hero() {
         <div
           onMouseEnter={() => setVidHover(true)}
           onMouseLeave={() => setVidHover(false)}
-          className="mask-clip-path absolute-center absolute z-[10] cursor-pointer overflow-hidden rounded-lg"
+          className=" absolute-center absolute z-[10] cursor-pointer overflow-hidden rounded-lg"
         >
           <div
             className={`vid-div origin-center [clip-path:inset(50%_50%_50%_50%)]`}
