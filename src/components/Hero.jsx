@@ -31,6 +31,7 @@ function Hero() {
       setIsLoading(false);
     }
   }, [loadedVideos]);
+  
   const handleMiniVdClick = () => {
     setAllowClick(false);
     setHasClicked(true);
@@ -162,14 +163,9 @@ function Hero() {
     });
   }, []);
 
-  useEffect(() => {
-    if (loadedVideos === totalVideos - 1) {
-      setIsLoading(false);
-    }
-  }, [loadedVideos]);
   useGSAP(() => {
     const tl = gsap.timeline({});
-    if (isLoading) {
+    if (!isLoading) {
       tl.to(".site-loader", {
         duration: 1,
         opacity: 0,

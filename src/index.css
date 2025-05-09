@@ -302,3 +302,17 @@ body {
     transform: translateY(-0px);
   }
 }
+
+/* ScrollSmoother styles */
+#smooth-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#smooth-content {
+  min-height: 100vh;
+}
