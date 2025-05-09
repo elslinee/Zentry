@@ -222,13 +222,15 @@ body {
 }
 
 .animated-word {
-  @apply special-font font-zentry font-black opacity-0;
+  @apply font-zentry font-black opacity-0;
+  font-family: "Zentry";
+  font-feature-settings: "ss01" on;
   transform: translate3d(10px, 51px, -60px) rotateY(60deg) rotateX(-40deg);
   transform-origin: 50% 50% -150px !important;
   will-change: opacity, transform;
 }
 */ .bento-tilt_1 {
-  @apply border-hsla relative col-span-2 overflow-hidden rounded-md transition-transform duration-300 ease-out;
+  @apply relative col-span-2 overflow-hidden rounded-md border border-white/20 transition-transform duration-300 ease-out;
 }
 
 .bento-tilt_2 {
