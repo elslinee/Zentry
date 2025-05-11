@@ -9,186 +9,81 @@ gsap.registerPlugin(ScrollTrigger);
 function Universe() {
   const [videoSrc, setVideoSrc] = useState(1);
   const src = (index) => `/videos/Blockchain_${index}.webm`;
+
   useGSAP(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: "#universe",
-        start: "-200px center",
+        trigger: ".universe",
+        start: "top center",
         end: "bottom center",
         scrub: false,
         markers: false,
-        toggleActions: "play none none reverse",
+      },
+      onComplete: () => {
+        tl.restart();
       },
     });
-    const tl2 = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#who-we-are",
-        start: "-200px center",
-        end: "bottom center",
-        scrub: false,
-        markers: false,
-        toggleActions: "play none none reverse",
-      },
-    });
-    tl2
-      .to("body", {
-        backgroundColor: "#dfdff2",
-        duration: 0,
-        ease: "none",
-      })
-      .to("#universe", {
-        backgroundColor: "#dfdff2",
-        duration: 0,
-        ease: "none",
-      });
+    const tl2 = gsap.timeline({});
 
-    tl.to("body", {
-      backgroundColor: "#edff66",
-      duration: 0,
-      ease: "none",
-    })
-      .to("#universe", {
-        backgroundColor: "#edff66",
-        duration: 0,
-        ease: "none",
-      })
-      .to(
-        "#story",
-        {
-          backgroundColor: "#edff66",
-          duration: 0,
-          ease: "none",
-        },
-        0,
-      )
-      .to(
-        "#story .gsap-story-text p",
-        {
-          color: "#000",
-          duration: 0,
-          ease: "none",
-        },
-        0,
-      )
-      .to(
-        "#story .gsap-story-text button",
-        {
-          backgroundColor: "#000",
-          color: "#dfdff2",
-          duration: 0,
-          ease: "none",
-        },
-        0,
-      );
-  });
-
-  useGSAP(() => {
-    const tl = gsap.timeline({});
-
-    tl.to("#universe", {
-      scrollTrigger: {
-        trigger: "#universe",
-        start: "top 100px",
-        end: "bottom 100px",
-        scrub: true,
-        markers: false,
-        pin: true,
-      },
-    })
-      .to(".scrolling-container-1 .scrolling-bar", {
-        scrollTrigger: {
-          trigger: ".scrolling-container-1",
-          start: "top center",
-          end: "bottom center",
-          scrub: true,
-          markers: false,
-        },
-        onComplete: () => {
-          gsap.to(".scrolling-container-1 ", {
-            scrollTrigger: {
-              trigger: ".scrolling-container-1",
-              start: "top center",
-              end: "bottom center",
-              scrub: true,
-              markers: false,
-            },
-            opacity: 0,
-            height: 0,
-          });
-        },
-        onStart: () => {
-          const tl = gsap.timeline({});
-          tl.to(".universe-video", {
+    tl.to(".scrolling-container-1 .scrolling-bar", {
+      duration: 1.5,
+      height: "100%",
+      onComplete: () => {
+        tl2
+          .to(".universe-video", {
+            duration: 0.3,
             opacity: 0,
             onComplete: () => {
               setVideoSrc(1);
             },
-          }).to(".universe-video", {
+          })
+          .to(".universe-video", {
+            duration: 0.3,
             opacity: 1,
           });
-        },
-        height: "100%",
-      })
+      },
+    })
       .to(".scrolling-container-2 .scrolling-bar", {
-        scrollTrigger: {
-          trigger: ".scrolling-container-2",
-          start: "top center",
-          end: "bottom center",
-          scrub: true,
-          markers: false,
-        },
-        onStart: () => {
-          const tl = gsap.timeline({});
-          tl.to(".universe-video", {
-            opacity: 0,
-            onComplete: () => {
-              setVideoSrc(2);
-            },
-          }).to(".universe-video", {
-            opacity: 1,
-          });
-        },
-        onComplete: () => {
-          gsap.to(".scrolling-container-2 ", {
-            scrollTrigger: {
-              trigger: ".scrolling-container-2",
-              start: "top center",
-              end: "bottom center",
-              scrub: true,
-              markers: false,
-            },
-            opacity: 0,
-            height: 0,
-          });
-        },
+        duration: 1.5,
         height: "100%",
+        onComplete: () => {
+          tl2
+            .to(".universe-video", {
+              duration: 0.3,
+              opacity: 0,
+              onComplete: () => {
+                setVideoSrc(2);
+              },
+            })
+            .to(".universe-video", {
+              duration: 0.3,
+              opacity: 1,
+            });
+        },
       })
       .to(".scrolling-container-3 .scrolling-bar", {
-        scrollTrigger: {
-          trigger: ".scrolling-container-3",
-          start: "top center",
-          end: "bottom center",
-          scrub: true,
-          markers: false,
-        },
-        onStart: () => {
-          const tl = gsap.timeline({});
-          tl.to(".universe-video", {
-            opacity: 0,
-            onComplete: () => {
-              setVideoSrc(3);
-            },
-          }).to(".universe-video", {
-            opacity: 1,
-          });
-        },
+        duration: 1.5,
         height: "100%",
+        onComplete: () => {
+          tl2
+            .to(".universe-video", {
+              duration: 0.3,
+              opacity: 0,
+              onComplete: () => {
+                setVideoSrc(3);
+              },
+            })
+            .to(".universe-video", {
+              duration: 0.3,
+              opacity: 1,
+            });
+        },
       });
   });
   return (
     <section
       id="universe"
-      className="universe relative min-h-[100vh] w-full bg-black"
+      className="universe relative min-h-[100vh] w-full bg-yellow-300 py-32"
     >
       <div className="px-10">
         <AnimatedTitle reverse={true} className="pb-8">
@@ -200,7 +95,7 @@ function Universe() {
           title={"Enter Value"}
           containerClass={"!bg-black !text-blue-75 !px-10"}
         />
-        <div className="hidden pt-20 lg:block">
+        <div className="hidden flex-col gap-10 pt-20 lg:flex">
           <div className="scrolling-container-1 relative overflow-hidden pl-20 text-black">
             <div className="absolute top-0 left-0 h-full">
               <p className="mt-2 w-4 text-xs font-black">01</p>

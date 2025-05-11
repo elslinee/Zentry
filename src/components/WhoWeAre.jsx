@@ -10,7 +10,7 @@ function WhoWeAre() {
   return (
     <section
       id="who-we-are"
-      className="relative min-h-screen w-full pt-16 pb-16 lg:pt-40 lg:pb-32"
+      className="bg-blue-75 relative min-h-screen w-full pt-16 pb-16 lg:pt-40 lg:pb-32"
     >
       <div className="container mx-auto px-3 md:px-10">
         <div className="px-5">

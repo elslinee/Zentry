@@ -22,6 +22,7 @@ function AnimatedTitle({ children, reverse = false, className, delay = 0 }) {
         stagger: 0.2,
         duration: 1.2,
         ease: "expo.out",
+
         scrollTrigger: {
           trigger: titleRef.current,
           start: "top 80%",

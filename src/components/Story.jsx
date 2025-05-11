@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Story() {
   const imageRef = useRef(null);
+
   useGSAP(() => {
     gsap.from(imageRef.current, {
       scrollTrigger: {
