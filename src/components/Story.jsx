@@ -57,6 +57,7 @@ function Story() {
         </p>
         <Button title={"Discover Prologue"} />
       </div>
+      {""}
     </section>
   );
 }
