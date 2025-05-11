@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { Grid } from "ldrs/react";
 import "ldrs/react/Grid.css";
 import { useAppContext } from "../context/AppContext";
+import AnimatedTitle from "./AnimatedTitle";
 gsap.registerPlugin(ScrollTrigger);
 function Hero() {
   const totalVideos = 4;
@@ -185,13 +186,7 @@ function Hero() {
     }
   }, [isLoading]);
   return (
-    <section className="hero-section w-x-hidden relative  w-screen overflow-hidden">
-      <div className="site-loader flex-center fixed z-[1000] h-dvh w-screen overflow-hidden bg-[#5724ff]">
-        <div className="loader">
-          <Grid size="150" speed="1.5" color="black" />
-        </div>
-      </div>
-
+    <section className="hero-section w-x-hidden relative w-screen overflow-hidden">
       <div
         id="video-frame"
         className="bg-blue-75 relative z-[2] h-dvh overflow-hidden"
@@ -199,7 +194,7 @@ function Hero() {
         <div
           onMouseEnter={() => setVidHover(true)}
           onMouseLeave={() => setVidHover(false)}
-          className=" absolute-center absolute z-[10] cursor-pointer overflow-hidden rounded-lg"
+          className="absolute-center absolute z-[10] cursor-pointer overflow-hidden rounded-lg"
         >
           <div
             className={`vid-div origin-center [clip-path:inset(50%_50%_50%_50%)]`}
@@ -242,9 +237,14 @@ function Hero() {
 
         <div className="absolute top-0 left-0 z-[2] size-full">
           <div className="mt-24 px-5 sm:px-10">
-            <h1 className="special-font text-blue-75 hero-heading z-[10]">
-              Redefi<b>n</b>e
-            </h1>
+            <AnimatedTitle
+              delay={!isLoading ? 9999 : 0.3}
+              className="special-font text-blue-75 hero-heading z-[10]"
+            >
+              <h1 className="special-font text-blue-75 hero-heading z-[10]">
+                Redefi<b>n</b>e
+              </h1>
+            </AnimatedTitle>
 
             <p className="font-robert-regular mb-5 max-w-64 text-xl text-blue-100">
               Enter the Metgame Layer

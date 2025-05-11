@@ -58,12 +58,12 @@ function NavBar() {
       if (scrollTop > lastScrollTop) {
         gsap.to(navbar, {
           yPercent: -150,
-          duration: 1,
+          duration: 0.7,
         });
       } else {
         gsap.to(navbar, {
           yPercent: 0,
-          duration: 1,
+          duration: 0.7,
         });
       }
 

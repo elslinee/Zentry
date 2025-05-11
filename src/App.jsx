@@ -4,6 +4,10 @@ import gsap from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import About from "./components/About";
+import Features from "./components/Features";
+import Story from "./components/Story";
+import Universe from "./components/Universe";
+import WhoWeAre from "./components/WhoWeAre";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 
@@ -24,6 +28,10 @@ function App() {
         <div className="relative min-h-dvh overflow-x-hidden">
           <Hero />
           <About />
+          <Features />
+          <Story />
+          <Universe />
+          <WhoWeAre />
         </div>
       </div>
     </main>

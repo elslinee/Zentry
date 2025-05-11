@@ -2,6 +2,7 @@ import { useGSAP } from "@gsap/react";
 import React from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import AnimatedTitle from "./AnimatedTitle";
 
 gsap.registerPlugin(ScrollTrigger);
 function About() {
@@ -32,19 +33,16 @@ function About() {
     });
   }, []);
   return (
-    <div id="about" className="relative mt-24 w-screen md:mt-42">
+    <section id="about" className="relative mt-24 w-screen md:mt-42">
       <div className="relative mb-8 flex flex-col items-center gap-5">
         <span className="about-welcome font-general flex w-full items-center justify-center text-center text-xs font-medium uppercase">
           Welcome to Zentry
         </span>
-        <div className="about-title mx-auto justify-center leading-[clamp(60px,8vw,100px)]">
-          <h2 className="font-zentry special-font m-0 p-0 text-center text-[clamp(60px,8vw,120px)] font-black text-black">
-            Disc<b>o</b>ver the world's
+        <AnimatedTitle reverse={true} className="">
+          <h2 className="font-zentry about-title special-font m-0 mx-auto justify-center p-0 text-center text-[clamp(60px,8vw,120px)] leading-[clamp(60px,8vw,100px)] font-black text-black">
+            Disc<b>o</b>ver the world's <br /> largest shared <b>a</b>dventure
           </h2>
-          <h2 className="font-zentry special-font m-0 p-0 text-center text-[clamp(60px,8vw,120px)] font-black text-black">
-            largest shared <b>a</b>dventure
-          </h2>
-        </div>
+        </AnimatedTitle>
       </div>
       <div className="relative h-dvh w-screen" id="clip">
         <div className="absolute top-0 -left-14 z-[50] size-full">
@@ -77,7 +75,7 @@ function About() {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

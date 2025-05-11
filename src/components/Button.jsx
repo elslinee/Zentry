@@ -10,6 +10,7 @@ const Button = ({
   title,
   leftIcon = false,
   rightIcon = false,
+  hoverEff = true,
   containerClass,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -29,12 +30,14 @@ const Button = ({
   };
   const hoverEffect = (state) => {
     splitAnimation(state ? -20 : 20);
-    setIsHovered(state);
+    if (hoverEff) {
+      setIsHovered(state);
+    }
   };
   return (
     <button
       id={id}
-      className={`group btn-clip-hover relative z-10 w-fit  cursor-pointer overflow-hidden rounded-[40px] bg-violet-50 px-7 py-3 text-sm text-black transition-all duration-200 ease-out hover:rounded-[6px] ${containerClass} ${isHovered ? "btn-clip-hover" : "btn-clip-nonHover"}`}
+      className={`group btn-clip-hover bg-blue-75 relative z-10 w-fit cursor-pointer overflow-hidden rounded-[40px] px-7 py-3 text-sm text-black transition-all duration-200 ease-out hover:rounded-[6px] ${containerClass} ${isHovered ? "btn-clip-hover" : "btn-clip-nonHover"}`}
       onMouseEnter={() => hoverEffect(true)}
       onMouseLeave={() => hoverEffect(false)}
     >
