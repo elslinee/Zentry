@@ -358,3 +358,14 @@ body {
     transform: translateY(0);
   }
 }
+footer ul li {
+  cursor: pointer;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  border-radius: 14px;
+  text-align: center;
+}
+footer ul li:hover {
+  background-color: #000;
+  color: #5542ff;
+}

@@ -113,7 +113,7 @@ function Universe() {
               Shaping Zentry Collectively
             </p>
             <p className="p-text max-w-[300px] overflow-hidden leading-[18px]">
-              articipate in governance, influence key decisions in the
+              Participate in governance, influence key decisions in the
               ever-growing Zentry Universe that is limited only by people's
               imaginations
             </p>
@@ -132,12 +132,12 @@ function Universe() {
             </div>
             <p className="pb-4 text-2xl font-medium">
               {" "}
-              Shaping Zentry Collectively
+              Unlocking Economic Opportunity
             </p>
             <p className="max-w-[300px] leading-[18px]">
-              articipate in governance, influence key decisions in the
-              ever-growing Zentry Universe that is limited only by people's
-              imaginations
+              ZENT, a commodity-based currency that unlocks exclusive benefits,
+              airdrops, quotas, and co-creation within and beyond Zentry
+              ecosystem.
             </p>
           </div>
           <div className="scrolling-container-3 relative pl-20 text-black">
@@ -152,14 +152,10 @@ function Universe() {
                 ></div>
               </div>
             </div>
-            <p className="pb-4 text-2xl font-medium">
-              {" "}
-              Shaping Zentry Collectively
-            </p>
+            <p className="pb-4 text-2xl font-medium"> Sharing Value Accrued</p>
             <p className="max-w-[300px] leading-[18px]">
-              articipate in governance, influence key decisions in the
-              ever-growing Zentry Universe that is limited only by people's
-              imaginations
+              ZENT holders thrive as Zentry grows, benefiting from the expansive
+              partnerships, treasury investment and economic activities.
             </p>
           </div>
         </div>
@@ -181,7 +177,7 @@ function Universe() {
               Shaping Zentry Collectively
             </p>
             <p className="p-text max-w-[300px] overflow-hidden leading-[18px]">
-              articipate in governance, influence key decisions in the
+              Participate in governance, influence key decisions in the
               ever-growing Zentry Universe that is limited only by people's
               imaginations
             </p>
@@ -200,12 +196,12 @@ function Universe() {
             </div>
             <p className="pb-4 text-2xl font-medium">
               {" "}
-              Shaping Zentry Collectively
+              Unlocking Economic Opportunity
             </p>
             <p className="max-w-[300px] leading-[18px]">
-              articipate in governance, influence key decisions in the
-              ever-growing Zentry Universe that is limited only by people's
-              imaginations
+              ZENT, a commodity-based currency that unlocks exclusive benefits,
+              airdrops, quotas, and co-creation within and beyond Zentry
+              ecosystem.
             </p>
           </div>
           <div className="relative pl-20 text-black">
@@ -220,14 +216,10 @@ function Universe() {
                 ></div>
               </div>
             </div>
-            <p className="pb-4 text-2xl font-medium">
-              {" "}
-              Shaping Zentry Collectively
-            </p>
+            <p className="pb-4 text-2xl font-medium"> Sharing Value Accrued</p>
             <p className="max-w-[300px] leading-[18px]">
-              articipate in governance, influence key decisions in the
-              ever-growing Zentry Universe that is limited only by people's
-              imaginations
+              ZENT holders thrive as Zentry grows, benefiting from the expansive
+              partnerships, treasury investment and economic activities.
             </p>
           </div>
         </div>

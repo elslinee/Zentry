@@ -9,6 +9,8 @@ import Story from "./components/Story";
 import Universe from "./components/Universe";
 import WhoWeAre from "./components/WhoWeAre";
 import { useGSAP } from "@gsap/react";
+import Footer from "./components/Footer";
+import Contact from "./components/Contact";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 
@@ -31,30 +33,26 @@ function App() {
       start: "-200px center",
       end: "bottom center",
       toggleActions: "play reverse play reverse",
-      markers: true,
+      markers: false,
       onEnter: () => {
-        console.log("Entered Universe section");
         suwContainer.style.backgroundColor = "#edff66";
         storyText.style.color = "#000";
         storyBtn.style.backgroundColor = "#000";
         storyBtn.style.color = "#dfdff2";
       },
       onLeave: () => {
-        console.log("Left Universe section");
         suwContainer.style.backgroundColor = "#000";
         storyText.style.color = "#dfdff2";
         storyBtn.style.backgroundColor = "#dfdff2";
         storyBtn.style.color = "#000";
       },
       onEnterBack: () => {
-        console.log("Entered Universe section from bottom");
         suwContainer.style.backgroundColor = "#edff66";
         storyText.style.color = "#000";
         storyBtn.style.backgroundColor = "#000";
         storyBtn.style.color = "#dfdff2";
       },
       onLeaveBack: () => {
-        console.log("Left Universe section going up");
         suwContainer.style.backgroundColor = "#000";
         storyText.style.color = "#dfdff2";
         storyBtn.style.backgroundColor = "#dfdff2";
@@ -66,25 +64,21 @@ function App() {
       start: "top center",
       end: "bottom center",
       toggleActions: "play reverse play reverse",
-      markers: true,
+      markers: false,
       onEnter: () => {
-        console.log("Entered Who We Are section");
         suwContainer.style.backgroundColor = "#dfdff2";
       },
       onLeave: () => {
-        console.log("Left Who We Are section");
-        suwContainer.style.backgroundColor = "#edff66";
+        suwContainer.style.backgroundColor = "#dfdff2";
       },
       onEnterBack: () => {
-        console.log("Entered Who We Are section from bottom");
-        suwContainer.style.backgroundColor = "#";
+        suwContainer.style.backgroundColor = "#dfdff2";
       },
       onLeaveBack: () => {
-        console.log("Left Who We Are section going up");
         suwContainer.style.backgroundColor = "#edff66";
       },
     };
-     gsap.timeline({
+    gsap.timeline({
       scrollTrigger: mainScrollTrigger,
     });
     gsap.timeline({
@@ -99,11 +93,13 @@ function App() {
           <Hero />
           <About />
           <Features />
-          <div id="suw-container" className="bg-black">
+          <div id="suw-container" className="bg-black overflow-hidden">
             <Story />
             <Universe />
             <WhoWeAre />
           </div>
+          <Contact />
+          <Footer />
         </div>
       </div>
     </main>
