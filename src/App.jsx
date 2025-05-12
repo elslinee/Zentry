@@ -23,66 +23,75 @@ function App() {
     });
   }, []);
   useGSAP(() => {
-    const universe = document.querySelector("#universe");
-    const story = document.querySelector("#story");
     const storyText = document.querySelector("#story .gsap-story-text p");
     const storyBtn = document.querySelector("#story .gsap-story-text button");
-    const whoWeAre = document.querySelector("#who-we-are");
-
-    const scrollTriggerUniverse = {
-      trigger: universe,
+    const suwContainer = document.querySelector("#suw-container");
+    const mainScrollTrigger = {
+      trigger: "#universe",
       start: "-200px center",
       end: "bottom center",
       toggleActions: "play reverse play reverse",
       markers: true,
-    };
-    gsap.to(story, {
-      backgroundColor: "#edff66",
-      duration: 0.1,
-      ease: "none",
-      scrollTrigger: scrollTriggerUniverse,
-    });
-
-    gsap.from(universe, {
-      backgroundColor: "#000",
-      duration: 0.1,
-      ease: "none",
-      scrollTrigger: {
-        trigger: universe,
-        start: "-200px center",
-        end: "bottom center",
-        toggleActions: "play reverse play reverse",
-        markers: true,
-        onLeave: () => {
-          gsap.to(universe, {
-            backgroundColor: "#dfdff2",
-            duration: 0.1,
-          });
-        },
+      onEnter: () => {
+        console.log("Entered Universe section");
+        suwContainer.style.backgroundColor = "#edff66";
+        storyText.style.color = "#000";
+        storyBtn.style.backgroundColor = "#000";
+        storyBtn.style.color = "#dfdff2";
       },
+      onLeave: () => {
+        console.log("Left Universe section");
+        suwContainer.style.backgroundColor = "#000";
+        storyText.style.color = "#dfdff2";
+        storyBtn.style.backgroundColor = "#dfdff2";
+        storyBtn.style.color = "#000";
+      },
+      onEnterBack: () => {
+        console.log("Entered Universe section from bottom");
+        suwContainer.style.backgroundColor = "#edff66";
+        storyText.style.color = "#000";
+        storyBtn.style.backgroundColor = "#000";
+        storyBtn.style.color = "#dfdff2";
+      },
+      onLeaveBack: () => {
+        console.log("Left Universe section going up");
+        suwContainer.style.backgroundColor = "#000";
+        storyText.style.color = "#dfdff2";
+        storyBtn.style.backgroundColor = "#dfdff2";
+        storyBtn.style.color = "#000";
+      },
+    };
+    const whoWeAreTrigger = {
+      trigger: "#who-we-are",
+      start: "top center",
+      end: "bottom center",
+      toggleActions: "play reverse play reverse",
+      markers: true,
+      onEnter: () => {
+        console.log("Entered Who We Are section");
+        suwContainer.style.backgroundColor = "#dfdff2";
+      },
+      onLeave: () => {
+        console.log("Left Who We Are section");
+        suwContainer.style.backgroundColor = "#edff66";
+      },
+      onEnterBack: () => {
+        console.log("Entered Who We Are section from bottom");
+        suwContainer.style.backgroundColor = "#";
+      },
+      onLeaveBack: () => {
+        console.log("Left Who We Are section going up");
+        suwContainer.style.backgroundColor = "#edff66";
+      },
+    };
+     gsap.timeline({
+      scrollTrigger: mainScrollTrigger,
     });
-
-    gsap.to(storyText, {
-      color: "#000",
-      duration: 0.1,
-      ease: "none",
-      scrollTrigger: scrollTriggerUniverse,
-    });
-    gsap.to(storyBtn, {
-      color: "#dfdff2",
-      backgroundColor: "#000",
-      duration: 0.1,
-      ease: "none",
-      scrollTrigger: scrollTriggerUniverse,
-    });
-
-    gsap.to(whoWeAre, {
-      backgroundColor: "#edff66",
-      duration: 0.1,
-      ease: "none",
-      scrollTrigger: scrollTriggerUniverse,
+    gsap.timeline({
+      scrollTrigger: whoWeAreTrigger,
     });
   }, []);
+
   return (
     <main id="smooth-wrapper">
       <div id="smooth-content">
@@ -90,10 +99,11 @@ function App() {
           <Hero />
           <About />
           <Features />
-
-          <Story />
-          <Universe />
-          <WhoWeAre />
+          <div id="suw-container" className="bg-black">
+            <Story />
+            <Universe />
+            <WhoWeAre />
+          </div>
         </div>
       </div>
     </main>

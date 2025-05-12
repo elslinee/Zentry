@@ -24,7 +24,7 @@ function Story() {
   return (
     <section
       id="story"
-      className="relative w-screen overflow-hidden bg-black pt-24 pb-32 md:pt-42 md:pb-0 lg:min-h-[135vh]"
+      className="relative w-screen overflow-hidden bg-inherit pt-24 pb-32 md:pt-42 md:pb-0 lg:min-h-[135vh]"
     >
       <div className="relative flex flex-col items-center gap-5">
         <span className="about-welcome text-blue-75 font-general flex w-full items-center justify-center text-center text-xs font-medium uppercase">

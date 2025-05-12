@@ -83,7 +83,7 @@ function Universe() {
   return (
     <section
       id="universe"
-      className="universe relative min-h-[100vh] w-full bg-yellow-300 py-32"
+      className="universe relative min-h-[100vh] w-full bg-inherit py-32"
     >
       <div className="px-10">
         <AnimatedTitle reverse={true} className="pb-8">
